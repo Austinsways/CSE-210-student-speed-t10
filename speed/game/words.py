@@ -84,7 +84,10 @@ class Words:
         Args:
             self (Words): An instance of Words.
         """
-        return self._inputs[-1]
+        if self.length != 0:
+            return self._inputs[-1]
+        else:
+            return ""
 
     def update_words(self, index):
         """Delete the typed word and add a new word to the list
