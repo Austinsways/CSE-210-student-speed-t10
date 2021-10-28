@@ -66,7 +66,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self._update_points()
-        if self.words.get_last_input() == "*" or len(self.words.get_last_input()) > 49:
+        if self.words.get_last_input() == "*" or self.words.length > 49:
             self.words.reset_inputs()
         
     def _do_outputs(self):
