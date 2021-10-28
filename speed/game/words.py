@@ -92,3 +92,17 @@ class Words:
                 velocity = Point(1, 0)
                 self._add_segment(text, position, velocity)
                 l += 1
+
+    def _compare(self):
+        input_string = ""
+        for character in self._inputs:
+            input_string = input_string + character
+        i = 0
+        for word in self._words:
+            if word in input_string:
+                self.update_words(i)
+                return 1
+            i += 1
+        return 0
+        
+        
