@@ -25,12 +25,11 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._food = Food()
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
         self._score = Score()
-        self._snake = Snake()
+        self._words = Words()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -78,4 +77,5 @@ class Director:
         self._output_service.draw_actor(self._score)
         self._output_service.flush_buffer()
 
-   
+    def _update_points(self):
+        self._score.add_points(self._words.compare_words())
