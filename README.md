@@ -45,3 +45,4 @@ root                    (project root folder)
 
 
 * Austin Eldredge eld20009@byui.edu
+* Dawson Miskin Miskindr13@gmail.com
