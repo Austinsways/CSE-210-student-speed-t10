@@ -66,8 +66,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._handle_body_collision()
-        self._handle_food_collision()
+        self._update_points()
+        if self._words.get_last_input() == "*":
+            self._words.reset_inputs()
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
