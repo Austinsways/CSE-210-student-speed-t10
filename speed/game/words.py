@@ -24,6 +24,8 @@ class Words:
         self._segments = []
         self._inputs = []
         self._input_seg = []
+        self.i = 0
+        self.length = len(self._inputs)
         self._prepare()
 
     def _prepare(self):
@@ -107,3 +109,24 @@ class Words:
 
     def reset_inputs(self):
         self._inputs.clear() 
+
+    def _add_input_segment(self, text, position, velocity):
+   
+        segment = Actor()
+        segment.set_text(text)
+        segment.set_position(position)
+        segment.set_velocity(velocity)
+        self._input_seg.append(segment)
+
+    def get_input_all(self):
+        return self._input_seg
+
+    def refresh(self):            
+        y = constants.MAX_Y
+        v = Point(0,0)
+        position = Point(self.i + 11, y)
+        if not self.length == len(self._inputs):
+            self._add_input_segment(self._inputs[-1], position, v)
+            self.length += 1
+            self.i += 1
+            

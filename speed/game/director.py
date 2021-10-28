@@ -78,6 +78,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        self._words.refresh()
         self._output_service.clear_screen()
         self._output_service.draw_actors(self._words.get_all())
         self._output_service.draw_actor(self._score)
