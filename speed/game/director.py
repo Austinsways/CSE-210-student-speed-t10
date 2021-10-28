@@ -11,12 +11,11 @@ class Director:
         Controller
 
     Attributes:
-        food (Food): The snake's target.
         input_service (InputService): The input mechanism.
         keep_playing (boolean): Whether or not the game can continue.
         output_service (OutputService): The output mechanism.
         score (Score): The current score.
-        snake (Snake): The player or snake.
+        words (Words): An object of the Words class.
     """
 
     def __init__(self, input_service, output_service):
