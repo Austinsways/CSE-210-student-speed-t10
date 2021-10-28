@@ -50,8 +50,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        direction = self._input_service.get_direction()
-        self._snake.move_head(direction)
+        tested_input = self._input_service.getletter()
+        if tested_input == None:
+            self._keep_playing = False
+        elif tested_input == "":
+            pass
+        else:
+            self.words._inputs.append(self.getletter())
+        self._words.move_word()
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
