@@ -18,10 +18,14 @@ class Words:
         """
         super().__init__()
         self._words = []
+        self._segments = []
+        self._inputs = []
+        self._input_seg = []
 
     
     def move_word(self):
         pass
+
     def get_all(self):
         """Gets all the snake's segments.
         

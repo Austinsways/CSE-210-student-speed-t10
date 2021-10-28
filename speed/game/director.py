@@ -1,7 +1,7 @@
 from time import sleep
 from game import constants
 from game.score import Score
-from game.snake import Words
+from game.words import Words
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
