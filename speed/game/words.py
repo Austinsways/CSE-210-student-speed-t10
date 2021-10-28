@@ -63,8 +63,13 @@ class Words:
         segment.set_velocity(velocity)
         self._segments.append(segment)
     
-    def get_last_input():
-        pass
+    def get_last_input(self):
+        """Returns the last input stored in self._inputs.
+        
+        Args:
+            self (Words): An instance of Words.
+        """
+        return self._inputs[-1]
 
     def update_words(self, index):
         """delete the typed word and add a new word to the list"""
