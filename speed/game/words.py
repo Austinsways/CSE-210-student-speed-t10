@@ -1,7 +1,7 @@
 from game import constants
 from game.actor import Actor
 from game.point import Point
-import random
+import random as r
 
 class Words:
     """A words floating across the screen, that the player can type, as well as the buffer for the play for the player to input
@@ -21,14 +21,16 @@ class Words:
         
 
         self._words = []
-        for i in range(0,5):
-            temp_word = constants.LIBRARY[random.randint(0, 9999)]
-            self._words.append(temp_word)
         self._segments = []
         self._inputs = []
         self._input_seg = []
+        self._prepare()
 
-    
+    def _prepare(self):
+        for i in range(0,5):
+            temp_word = constants.LIBRARY[r.randint(0, 9999)]
+            self._words.append(temp_word)
+        self.create_segments()
     
 
     def move_word(self):
@@ -68,8 +70,8 @@ class Words:
 
     def update_words(self, index):
         """delete the typed word and add a new word to the list"""
-        self._words[index] = constants.LIBRARY(random.randint(0,9999))
-        self._segments = create_segments()
+        self._words[index] = constants.LIBRARY(r.randint(0,9999))
+        self._segments = self.create_segments()
 
         pass
 
