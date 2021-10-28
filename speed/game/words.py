@@ -59,3 +59,16 @@ class Words:
     def update_words():
         """delete the typed word and add a new word to the list"""
         pass
+
+    def create_segments(self):
+        self._segments = []
+        for word in self._words:
+            x = r.randint(1, constants.MAX_X - 2)
+            y = r.randint(1, constants.MAX_Y - 2)
+            l = 0
+            for letter in word:
+                text = letter
+                position = Point(x + l, y)
+                velocity = Point(1, 0)
+                self._add_segment(text, position, velocity)
+                l += 1
