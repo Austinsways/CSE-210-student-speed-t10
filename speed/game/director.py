@@ -45,7 +45,7 @@ class Director:
 
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
-        that means getting the desired direction and moving the snake.
+        that means getting the typed letter and checks if it is valid.
 
         Args:
             self (Director): An instance of Director.
@@ -61,7 +61,7 @@ class Director:
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
-        this case, that means checking for a collision and updating the score.
+        this case, that means checking last input value, reseting inputs, and updating the score.
 
         Args:
             self (Director): An instance of Director.
