@@ -147,6 +147,14 @@ class Words:
         self.i = 0
 
     def _add_input_segment(self, text, position, velocity):
+        """takes the characters in input the and creates a segment
+
+        Args:
+            self (Words): An instance of Words.
+            text (string): The segment's text.
+            position (Point): The segment's position.
+            velocity (Point): The segment's velocity.
+        """
    
         segment = Actor()
         segment.set_text(text)
@@ -155,9 +163,22 @@ class Words:
         self._input_seg.append(segment)
 
     def get_input_all(self):
+        """returns all the input segments.
+        
+        Args:
+            self (Words): An instance of Words.
+
+        Returns:
+            list: The input segments.
+        """
         return self._input_seg
 
-    def refresh(self):            
+    def refresh(self):
+        """Updates the input segments to be displayed
+
+        Args:
+            self (Words): An instance of Words.
+        """     
         y = constants.MAX_Y
         v = Point(0,0)
         position = Point(self.i + 11, y)
