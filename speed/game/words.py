@@ -107,5 +107,3 @@ class Words:
 
     def reset_inputs(self):
         self._inputs.clear() 
-        
-        

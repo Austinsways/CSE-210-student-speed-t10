@@ -79,10 +79,12 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-        self._output_service.draw_actor(self._food)
-        self._output_service.draw_actors(self._snake.get_all())
+        self._output_service.draw_actors(self._words.get_all())
         self._output_service.draw_actor(self._score)
+        self._output_service.draw_actors(self._words.get_input_all())
         self._output_service.flush_buffer()
+        
+
 
     def _update_points(self):
         self._score.add_points(self._words._compare())
