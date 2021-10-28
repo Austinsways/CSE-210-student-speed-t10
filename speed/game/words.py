@@ -24,8 +24,13 @@ class Words:
         for i in range(0,5):
             temp_word = constants.LIBRARY[random.randint(0, 9999)]
             self._words.append(temp_word)
+        self._segments = []
+        self._inputs = []
+        self._input_seg = []
 
     
+    
+
     def move_word(self):
         """update the segments to cause them to move across the screen"""
         for segment in self._segments:
@@ -67,3 +72,16 @@ class Words:
         self._segments = create_segments()
 
         pass
+
+    def create_segments(self):
+        self._segments = []
+        for word in self._words:
+            x = r.randint(1, constants.MAX_X - 2)
+            y = r.randint(1, constants.MAX_Y - 2)
+            l = 0
+            for letter in word:
+                text = letter
+                position = Point(x + l, y)
+                velocity = Point(1, 0)
+                self._add_segment(text, position, velocity)
+                l += 1
