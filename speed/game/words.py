@@ -1,6 +1,7 @@
 from game import constants
 from game.actor import Actor
 from game.point import Point
+import random
 
 class Words:
     """A words floating across the screen, that the player can type, as well as the buffer for the play for the player to input
@@ -14,17 +15,26 @@ class Words:
         """The class constructor.
         
         Args:
-            self (Snake): An instance of snake.
+            self (word): An instance of word.
         """
         super().__init__()
+        
+
         self._words = []
+        for i in range(0,5):
+            temp_word = constants.LIBRARY[random.randint(0, 9999)]
+            self._words.append(temp_word)
         self._segments = []
         self._inputs = []
         self._input_seg = []
 
     
+    
+
     def move_word(self):
-        pass
+        """update the segments to cause them to move across the screen"""
+        for segment in self._segments:
+            segment.move_next()
 
     def get_all(self):
         """Gets all the snake's segments.
@@ -56,8 +66,11 @@ class Words:
     def get_last_input():
         pass
 
-    def update_words():
+    def update_words(self, index):
         """delete the typed word and add a new word to the list"""
+        self._words[index] = constants.LIBRARY(random.randint(0,9999))
+        self._segments = create_segments()
+
         pass
 
     def create_segments(self):
