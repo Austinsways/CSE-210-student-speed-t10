@@ -7,9 +7,6 @@ class Words:
     """A words floating across the screen, that the player can type, as well as the buffer for the play for the player to input
     Stereotype:
         Structurer, Information Holder
-
-    Attributes:
-        _body (List): The snake's body (a list of Actor instances)
     """
 
     def __init__(self):
