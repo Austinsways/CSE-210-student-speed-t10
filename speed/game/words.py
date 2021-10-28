@@ -11,11 +11,12 @@ class Words:
     Attributes:
         _body (List): The snake's body (a list of Actor instances)
     """
+
     def __init__(self):
         """The class constructor.
         
         Args:
-            self (word): An instance of word.
+            self (Words): An instance of Words.
         """
         super().__init__()
         
@@ -29,6 +30,11 @@ class Words:
         self._prepare()
 
     def _prepare(self):
+        """Prepares the _words list by adding five words to the list.
+        
+        Args:
+            self (Words): an instance of Words.
+        """
         for i in range(0,5):
             temp_word = constants.LIBRARY[r.randint(0, 9999)]
             self._words.append(temp_word)
@@ -36,18 +42,22 @@ class Words:
     
 
     def move_word(self):
-        """update the segments to cause them to move across the screen"""
+        """Update the segments to cause them to move across the screen
+        
+        Args:
+            self (Words): an instance of Words.
+        """
         for segment in self._segments:
             segment.move_next()
 
     def get_all(self):
-        """Gets all the snake's segments.
+        """Gets all the word segments.
         
         Args:
-            self (Snake): An instance of snake.
+            self (Words): An instance of Words.
 
         Returns:
-            list: The snake's segments.
+            list: The word segments.
         """
         return self._segments
 
@@ -55,8 +65,9 @@ class Words:
 
     def _add_segment(self, text, position, velocity):
         """takes the characters in the word and creates a segment
+
         Args:
-            self (Word): An instance of snake.
+            self (Words): An instance of Words.
             text (string): The segment's text.
             position (Point): The segment's position.
             velocity (Point): The segment's velocity.
@@ -76,13 +87,23 @@ class Words:
         return self._inputs[-1]
 
     def update_words(self, index):
-        """delete the typed word and add a new word to the list"""
+        """Delete the typed word and add a new word to the list
+        
+        Args:
+            self (Words): an instance of Words.
+            index: the index of the work in the _words list.
+        """
         self._words[index] = constants.LIBRARY(r.randint(0,9999))
         self.create_segments()
 
         pass
 
     def create_segments(self):
+        """Creates a list of actor objects to be displayed on the board
+        
+        Args:
+            self (Words): an instance of Words.
+        """
         self._segments = []
         for word in self._words:
             x = r.randint(1, constants.MAX_X - 2)
@@ -96,6 +117,11 @@ class Words:
                 l += 1
 
     def _compare(self):
+        """Compares what input has been received to the list of words
+        
+        Args:
+            self (Words): an instance of Words.
+        """
         input_string = ""
         for character in self._inputs:
             input_string = input_string + character
@@ -108,6 +134,13 @@ class Words:
         return 0
 
     def reset_inputs(self):
+
+        """Clears _inputs list of any values
+        
+        Args:
+            self (Words): an instance of Words.
+        """
+
         self._inputs.clear() 
 
     def _add_input_segment(self, text, position, velocity):
@@ -129,4 +162,3 @@ class Words:
             self._add_input_segment(self._inputs[-1], position, v)
             self.length += 1
             self.i += 1
-            
