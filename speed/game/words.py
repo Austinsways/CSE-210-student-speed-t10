@@ -144,7 +144,10 @@ class Words:
             self (Words): an instance of Words.
         """
 
-        self._inputs.clear() 
+        self._inputs.clear()
+        self._input_seg.clear()
+        self.length = 0
+        self.i = 0
 
     def _add_input_segment(self, text, position, velocity):
    
