@@ -84,4 +84,4 @@ class Director:
         self._output_service.flush_buffer()
 
     def _update_points(self):
-        self._score.add_points(self._words.compare_words())
+        self._score.add_points(self._words._compare())
