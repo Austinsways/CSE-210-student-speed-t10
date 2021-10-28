@@ -50,13 +50,13 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        tested_input = self._input_service.getletter()
+        tested_input = self._input_service.get_letter()
         if tested_input == None:
             self._keep_playing = False
         elif tested_input == "":
             pass
         else:
-            self.words._inputs.append(self.getletter())
+            self.words._inputs.append(tested_input)
         self._words.move_word()
 
     def _do_updates(self):
