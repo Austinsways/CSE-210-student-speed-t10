@@ -44,4 +44,6 @@ root                    (project root folder)
 * Stephen Nielsen snielsen256@byui.edu
 * Austin Eldredge eld20009@byui.edu
 * Jace Wilderman Jwilderman@byui.edu
+* Ethan Tolson tol18009byui.edu
+* Dawson Miskin Miskindr13@gmail.com
 
