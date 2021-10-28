@@ -22,6 +22,8 @@ class Words:
         self._segments = []
         self._inputs = []
         self._input_seg = []
+        self.i = 0
+        self.length = len(self._inputs)
         self._prepare()
 
     def _prepare(self):
@@ -79,7 +81,10 @@ class Words:
         Args:
             self (Words): An instance of Words.
         """
-        return self._inputs[-1]
+        if self.length != 0:
+            return self._inputs[-1]
+        else:
+            return ""
 
     def update_words(self, index):
         """Delete the typed word and add a new word to the list
@@ -88,7 +93,7 @@ class Words:
             self (Words): an instance of Words.
             index: the index of the work in the _words list.
         """
-        self._words[index] = constants.LIBRARY(r.randint(0,9999))
+        self._words[index] = constants.LIBRARY[r.randint(0,9999)]
         self.create_segments()
 
         pass
@@ -129,9 +134,34 @@ class Words:
         return 0
 
     def reset_inputs(self):
+
         """Clears _inputs list of any values
         
         Args:
             self (Words): an instance of Words.
         """
-        self._inputs.clear() 
+
+        self._inputs.clear()
+        self._input_seg.clear()
+        self.length = 0
+        self.i = 0
+
+    def _add_input_segment(self, text, position, velocity):
+   
+        segment = Actor()
+        segment.set_text(text)
+        segment.set_position(position)
+        segment.set_velocity(velocity)
+        self._input_seg.append(segment)
+
+    def get_input_all(self):
+        return self._input_seg
+
+    def refresh(self):            
+        y = constants.MAX_Y
+        v = Point(0,0)
+        position = Point(self.i + 11, y)
+        if not self.length == len(self._inputs):
+            self._add_input_segment(self._inputs[-1], position, v)
+            self.length += 1
+            self.i += 1

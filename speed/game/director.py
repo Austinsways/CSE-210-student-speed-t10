@@ -28,7 +28,7 @@ class Director:
         self._keep_playing = True
         self._output_service = output_service
         self._score = Score()
-        self._words = Words()
+        self.words = Words()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -49,14 +49,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        tested_input = self._input_service.getletter()
+        tested_input = self._input_service.get_letter()
         if tested_input == None:
             self._keep_playing = False
         elif tested_input == "":
             pass
         else:
-            self.words._inputs.append(self.getletter())
-        self._words.move_word()
+            self.words._inputs.append(tested_input)
+        self.words.move_word()
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -66,8 +66,8 @@ class Director:
             self (Director): An instance of Director.
         """
         self._update_points()
-        if self._words.get_last_input() == "*":
-            self._words.reset_inputs()
+        if self.words.get_last_input() == "*" or self.words.length > 49:
+            self.words.reset_inputs()
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -77,13 +77,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        self.words.refresh()
         self._output_service.clear_screen()
-        self._output_service.draw_actors(self._words.get_all())
+        self._output_service.draw_actors(self.words.get_all())
         self._output_service.draw_actor(self._score)
-        self._output_service.draw_actors(self._words.get_input_all())
+        self._output_service.draw_actors(self.words.get_input_all())
         self._output_service.flush_buffer()
         
 
 
     def _update_points(self):
-        self._score.add_points(self._words._compare())
+        self._score.add_points(self.words._compare())
