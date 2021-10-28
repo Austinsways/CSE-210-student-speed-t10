@@ -9,7 +9,7 @@ class Score(Actor):
         Information Holder
 
     Attributes: 
-        _points (integer): The total point that the player has received.
+        _points (integer): The total points that the player has received.
     """
     def __init__(self):
         """The class constructor. Invokes the superclass constructor, initializes points to zero, sets the position and updates the text.
