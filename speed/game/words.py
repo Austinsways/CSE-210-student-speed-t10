@@ -76,7 +76,7 @@ class Words:
     def update_words(self, index):
         """delete the typed word and add a new word to the list"""
         self._words[index] = constants.LIBRARY(r.randint(0,9999))
-        self._segments = self.create_segments()
+        self.create_segments()
 
         pass
 
