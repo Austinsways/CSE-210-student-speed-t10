@@ -96,7 +96,7 @@ class Words:
             self (Words): an instance of Words.
             index: the index of the work in the _words list.
         """
-        self._words[index] = constants.LIBRARY(r.randint(0,9999))
+        self._words[index] = constants.LIBRARY[r.randint(0,9999)]
         self.create_segments()
 
         pass
